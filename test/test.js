@@ -1,6 +1,6 @@
+
 import add from '../src/add.js';
 import { expect } from 'chai';
-
 // Example test
 
 describe('#add', function(){
