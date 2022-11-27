@@ -29,3 +29,10 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    - run: make test-coverage-${{ matrix.test_number }}
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      env:
+        NODE_COVERALLS_DEBUG: 1
+      with:
+        github-token: ${{ secrets.github_token }}
