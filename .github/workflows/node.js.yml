@@ -23,21 +23,23 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
     - name: Run npm install
-      - run: npm install
+      if: always()
+    - run: npm install
     - name: Run unit tests
-      - run: npm test
+      if: always()
+    - run: npm test
     - name: Generate coverage report
-      - run: npm run coverage
-        if: always()
-    - name: Submit report to Coveralls
-        if: always()
-        uses: coverallsapp/github-action@master
-        env:
-          NODE_COVERALLS_DEBUG: 1
-        with:
-          github-token: ${{ secrets.github_token }}
+      if: always()
+    - run: npm run coverage
+    - name: Coveralls
+      if: always()
+      uses: coverallsapp/github-action@master
+      env:
+        NODE_COVERALLS_DEBUG: 1
+      with:
+        github-token: ${{ secrets.github_token }}
