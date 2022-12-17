@@ -6,6 +6,9 @@ describe('#defaultTo', function(){
         expect(defaultTo('a', 'c')).to.equal('a')
     });
     it('return default value', function(){
-        expect(defaultTo(undefined, 'c')).to.equal('c')
+        expect(defaultTo(undefined, 'c', undefined)).to.equal('c')
     });
+    it('return nothing if no default value', function(){
+        expect(defaultTo(undefined, undefined)).to.equal(undefined)
+    })
 });

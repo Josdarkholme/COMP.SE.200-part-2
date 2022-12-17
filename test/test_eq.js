@@ -17,5 +17,8 @@ describe('#eq', function(){
     it('compare two large floats', function(){
         expect(eq(1243321.0, 1243321.0)).to.equal(true)
     });
+    it('compare two large integers', function(){
+        expect(eq(10**5200000, 10**5200000)).to.equal(true)
+    })
 
 });
