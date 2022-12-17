@@ -30,6 +30,7 @@ jobs:
     - run: npm install
     - run: npm run coverage
     - name: Coveralls
+      if: always()
       uses: coverallsapp/github-action@master
       env:
         NODE_COVERALLS_DEBUG: 1
