@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/Josdarkholme/COMP.SE.200-part-2/badge.svg?branch=main)](https://coveralls.io/github/Josdarkholme/COMP.SE.200-part-2?branch=main)
+
 # Student template
 
 ## Purpose of this repository
